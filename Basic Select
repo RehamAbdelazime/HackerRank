@@ -1,0 +1,128 @@
+# Revising the Select Query I
+solution
+{
+	SELECT * FROM CITY WHERE CITY.POPULATION > 100000 AND Upper(CITY.COUNTRYCODE) = 'USA';
+}
+----------------------------------------------------------------------------------------------------------
+# Revising the Select Query II
+solution
+{
+	SELECT CITY.NAME FROM CITY WHERE CITY.POPULATION > 120000 AND Upper(CITY.COUNTRYCODE) = 'USA';
+}
+----------------------------------------------------------------------------------------------------------
+# Select All
+solution
+{
+	SELECT * FROM CITY;
+}
+----------------------------------------------------------------------------------------------------------
+# Select By ID
+solution
+{
+	SELECT * FROM CITY WHERE CITY.ID = 1661;
+}
+----------------------------------------------------------------------------------------------------------
+# Japanese Cities' Attributes
+solution
+{
+	SELECT * FROM CITY WHERE Upper(CITY.COUNTRYCODE) = 'JPN';
+}
+----------------------------------------------------------------------------------------------------------
+# Japanese Cities' Names
+solution
+{
+	SELECT CITY.NAME FROM CITY WHERE Upper(CITY.COUNTRYCODE) = 'JPN';
+}
+----------------------------------------------------------------------------------------------------------
+# Weather Observation Station 1
+solution
+{
+	SELECT STATION.CITY, STATION.STATE FROM STATION;
+}
+----------------------------------------------------------------------------------------------------------
+# Weather Observation Station 3
+solution
+{
+	SELECT DISTINCT STATION.CITY FROM STATION WHERE STATION.ID % 2 = 0;
+}
+----------------------------------------------------------------------------------------------------------
+# Weather Observation Station 4
+solution
+{
+	SELECT COUNT (CITY) - COUNT (DISTINCT CITY) FROM STATION;
+}
+----------------------------------------------------------------------------------------------------------
+# Weather Observation Station 5
+solution
+{
+	SELECT TOP 1 CITY, MIN(LEN(CITY))
+	FROM STATION
+	GROUP BY CITY
+	ORDER BY MIN(LEN(CITY)) ASC;
+					 
+	SELECT TOP 1 CITY, MAX(LEN(CITY))
+	FROM STATION
+	GROUP BY CITY
+	ORDER BY MAX(LEN(CITY)) DESC;
+}
+----------------------------------------------------------------------------------------------------------
+# Weather Observation Station 6
+solution
+{
+	SELECT DISTINCT STATION.CITY FROM STATION WHERE Upper(STATION.CITY) LIKE '[A,E,I,O,U]%' ;
+}
+----------------------------------------------------------------------------------------------------------
+# Weather Observation Station 7
+solution
+{
+	SELECT DISTINCT STATION.CITY FROM STATION WHERE Upper(STATION.CITY) LIKE '%[A,E,I,O,U]' ;
+}
+----------------------------------------------------------------------------------------------------------
+# Weather Observation Station 8
+solution
+{
+	SELECT STATION.CITY FROM STATION WHERE STATION.CITY LIKE '[A,E,I,O,U]%[A,E,I,O,U]'
+}
+----------------------------------------------------------------------------------------------------------
+# Weather Observation Station 9
+solution
+{
+	SELECT DISTINCT CITY FROM STATION WHERE not CITY LIKE '[A,E,I,O,U]%';
+}
+----------------------------------------------------------------------------------------------------------
+# Weather Observation Station 10
+solution
+{
+	SELECT DISTINCT CITY FROM STATION WHERE not CITY LIKE '%[aeiou]'
+}
+----------------------------------------------------------------------------------------------------------
+# Weather Observation Station 11
+solution
+{
+	SELECT DISTINCT CITY FROM STATION WHERE not CITY LIKE '[aeiou]%[aeiou]'
+}
+----------------------------------------------------------------------------------------------------------
+# Weather Observation Station 12
+solution
+{
+	SELECT DISTINCT CITY FROM STATION WHERE CITY LIKE '[^aeiou]%[^aeiou]'
+}
+----------------------------------------------------------------------------------------------------------
+# Higher Than 75 Marks
+solution
+{
+	SELECT NAME FROM STUDENTS WHERE MARKS > 75 ORDER BY SUBSTRING(NAME, LEN(NAME)-2, 3), ID;
+}
+----------------------------------------------------------------------------------------------------------
+# Employee Names
+solution
+{
+	SELECT NAME FROM EMPLOYEE ORDER BY NAME ASC
+}
+----------------------------------------------------------------------------------------------------------
+# Employee Salaries
+solution
+{
+	SELECT NAME FROM EMPLOYEE WHERE SALARY > 2000 AND MONTHS < 10 ORDER BY EMPLOYEE_ID ASC
+}
+----------------------------------------------------------------------------------------------------------
